@@ -1,0 +1,195 @@
+@import-normalize;
+
+@font-face {
+  font-family: "Neue Machina";
+  font-display: swap;
+  src: url("./fonts/NeueMachina-Light.418f63ac88af6ed51de9.woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Machina";
+  font-display: swap;
+  src: url("./fonts/NeueMachina-Black.a5d08d03e9e32b9c1224.woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Machina";
+  font-display: swap;
+  src: url("./fonts/NeueMachina-Regular.2dabb3622c2ec78c26ea.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Machina";
+  font-display: swap;
+  src: url("./fonts/NeueMachina-Bold.d49ee994b16c7a8be96e.woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Machina";
+  font-display: swap;
+  src: url("./fonts/NeueMachina-Medium.a9b17f3a7d0e2486822d.woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Machina";
+  font-display: swap;
+  src: url("./fonts/NeueMachina-Ultrabold.5310e4a5401b5d25eeba.woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+:root {
+  --swiper-navigation-size: 44px;
+  --swiper-theme-color: #007aff;
+  --main-green-color: #3f9c14;
+  --main-text-color: #eaeaea;
+  --second-text-color: #afafaf;
+  --main-bg-color: #181818;
+  --error-color: #df1332;
+}
+
+body {
+  background: #181818;
+  background: var(--main-bg-color);
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABIFBMVEUAAAA/nBM+nRQ/nBM+nRQ/nhQ/nBM/nBQ/nBM/nBM+nRM/mxOAgAA/nBNAnyA/nBNVqgA/nBM/nBM+nBM/nBNAnBU/nBM/nBM/nBNCnRM/nBI+nRM/nBNDmxY/mxQ5nA4/nRI+nhI/nRM/nBNGohc/nBNEmRE9nBI/mxNBnBQ/nRNCoRM+mxI9mRQ+mxZAnBM/nRVBnRE/nBRCnBBAnRQ/nBM+nBQ/nREAgAA7mRE/nBIzmQBAgAAA/wBJkgA5qhxBnRBEmRE/mxI6lxc5jhxAnwA9mxM9nBNAmQ07nRQ8lg8/nBNNmRo/nBNAlxg+nxdBnhNAmxI8mxQ/nRE/nRNCnhRDmhQ+mw9BmxRBnxU/nBM+mxdCnRI/nBNAmxNVqgDgTb8WAAAAYHRSTlMA/3/VgH78jv73Xq4CrQjsA7bOeeUkldz0QsFx4BdhEqcdkYQLah5HvVueG1QZOohuO9EfWfl7aAIemgUEAQcJLw+KFgkITzYUJxHYCvAgLTccM0mrMiYhM0qiIUbjpAZfxj6dAAABD0lEQVR4nFXQ5XLDMAwAYMuBhZosSQPlrrAyrDhmZuZu7/8Wk+3ebtMf6z5JJmI3SkbwTf7HWxLii6/87uVfNGLA0LKuf3L6izcRmqqiO+n9z84GRzsBMJtkitEYi1eDcPSyhVoFKBFyFIyano6uSwbiaxLWF9mM1Zo6bH/XJmSvDoM1sf92nZ3ZYy1l0B8EXnuI7zmWpmLocVt+VEEzWzy/8yB9juvQxD6pLYasEJwV7OO20D8Q2tAh7DzjfdEUBessgiyMpQgfhUblfIXjTpFdTxil/plonWIXaMKofMyfQp5miGa7r8gyYmaJY8UFSAxJrmv4jFNi/rZZ5uXDj1p1QmvzX9205slq4b5b+AFOBBoRor9LTgAAAABJRU5ErkJggg==)
+      2 2,
+    pointer;
+  font-family: "Neue Machina";
+  font-size: 0;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-green-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  background-color: #1d1d1d;
+  height: 6px;
+  width: 6px;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+button,
+div,
+li,
+link {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.container {
+  letter-spacing: 0.03em;
+  width: 100%;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  font-size: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* @font-face {
+  font-family: "Neue Machina";
+  font-display: swap;
+  src: url("./fonts/NeueMachina-Ultralight.woff2");
+  font-weight: 200;
+  font-style: normal;
+} */
