@@ -48,6 +48,12 @@
   font-style: normal;
 }
 
+@supports (text-decoration-skip-ink: auto) {
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+}
+
 :root {
   --swiper-navigation-size: 44px;
   --swiper-theme-color: #007aff;
@@ -56,21 +62,20 @@
   --second-text-color: #afafaf;
   --main-bg-color: #181818;
   --error-color: #df1332;
-}
-
-body {
-  background: #181818;
-  background: var(--main-bg-color);
-  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABIFBMVEUAAAA/nBM+nRQ/nBM+nRQ/nhQ/nBM/nBQ/nBM/nBM+nRM/mxOAgAA/nBNAnyA/nBNVqgA/nBM/nBM+nBM/nBNAnBU/nBM/nBM/nBNCnRM/nBI+nRM/nBNDmxY/mxQ5nA4/nRI+nhI/nRM/nBNGohc/nBNEmRE9nBI/mxNBnBQ/nRNCoRM+mxI9mRQ+mxZAnBM/nRVBnRE/nBRCnBBAnRQ/nBM+nBQ/nREAgAA7mRE/nBIzmQBAgAAA/wBJkgA5qhxBnRBEmRE/mxI6lxc5jhxAnwA9mxM9nBNAmQ07nRQ8lg8/nBNNmRo/nBNAlxg+nxdBnhNAmxI8mxQ/nRE/nRNCnhRDmhQ+mw9BmxRBnxU/nBM+mxdCnRI/nBNAmxNVqgDgTb8WAAAAYHRSTlMA/3/VgH78jv73Xq4CrQjsA7bOeeUkldz0QsFx4BdhEqcdkYQLah5HvVueG1QZOohuO9EfWfl7aAIemgUEAQcJLw+KFgkITzYUJxHYCvAgLTccM0mrMiYhM0qiIUbjpAZfxj6dAAABD0lEQVR4nFXQ5XLDMAwAYMuBhZosSQPlrrAyrDhmZuZu7/8Wk+3ebtMf6z5JJmI3SkbwTf7HWxLii6/87uVfNGLA0LKuf3L6izcRmqqiO+n9z84GRzsBMJtkitEYi1eDcPSyhVoFKBFyFIyano6uSwbiaxLWF9mM1Zo6bH/XJmSvDoM1sf92nZ3ZYy1l0B8EXnuI7zmWpmLocVt+VEEzWzy/8yB9juvQxD6pLYasEJwV7OO20D8Q2tAh7DzjfdEUBessgiyMpQgfhUblfIXjTpFdTxil/plonWIXaMKofMyfQp5miGa7r8gyYmaJY8UFSAxJrmv4jFNi/rZZ5uXDj1p1QmvzX9205slq4b5b+AFOBBoRor9LTgAAAABJRU5ErkJggg==)
-      2 2,
-    pointer;
-  font-family: "Neue Machina";
-  font-size: 0;
-  line-height: 1.5;
-  margin: 0;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
+  --bwc-chat-offset-bottom: 104px;
+  --bwc-widget-main-color: #3f9c14;
+  --bwc-widget-main-color-h: 101;
+  --bwc-widget-main-color-s: 77.3%;
+  --bwc-widget-main-color-l: 34.5%;
+  --bwc-widget-secondary-color: #2d6f0e;
+  --bwc-widget-secondary-color-h: 101;
+  --bwc-widget-secondary-color-s: 77.3%;
+  --bwc-widget-secondary-color-l: 24.5%;
+  --bwc-widget-text-color: #ffffff;
+  --bwc-widget-offline-logo: rgba(255, 255, 255, 0.35);
+  --bwc-widget-getcall-color: #3f9c14;
+  --bwc-widget-submit-buttons-color: #3f9c14;
+  --bwc-widget-editor-buttons-color: #3f9c14;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -90,11 +95,27 @@ body {
   box-sizing: border-box;
 }
 
+body {
+  background: #181818;
+  background: var(--main-bg-color);
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABIFBMVEUAAAA/nBM+nRQ/nBM+nRQ/nhQ/nBM/nBQ/nBM/nBM+nRM/mxOAgAA/nBNAnyA/nBNVqgA/nBM/nBM+nBM/nBNAnBU/nBM/nBM/nBNCnRM/nBI+nRM/nBNDmxY/mxQ5nA4/nRI+nhI/nRM/nBNGohc/nBNEmRE9nBI/mxNBnBQ/nRNCoRM+mxI9mRQ+mxZAnBM/nRVBnRE/nBRCnBBAnRQ/nBM+nBQ/nREAgAA7mRE/nBIzmQBAgAAA/wBJkgA5qhxBnRBEmRE/mxI6lxc5jhxAnwA9mxM9nBNAmQ07nRQ8lg8/nBNNmRo/nBNAlxg+nxdBnhNAmxI8mxQ/nRE/nRNCnhRDmhQ+mw9BmxRBnxU/nBM+mxdCnRI/nBNAmxNVqgDgTb8WAAAAYHRSTlMA/3/VgH78jv73Xq4CrQjsA7bOeeUkldz0QsFx4BdhEqcdkYQLah5HvVueG1QZOohuO9EfWfl7aAIemgUEAQcJLw+KFgkITzYUJxHYCvAgLTccM0mrMiYhM0qiIUbjpAZfxj6dAAABD0lEQVR4nFXQ5XLDMAwAYMuBhZosSQPlrrAyrDhmZuZu7/8Wk+3ebtMf6z5JJmI3SkbwTf7HWxLii6/87uVfNGLA0LKuf3L6izcRmqqiO+n9z84GRzsBMJtkitEYi1eDcPSyhVoFKBFyFIyano6uSwbiaxLWF9mM1Zo6bH/XJmSvDoM1sf92nZ3ZYy1l0B8EXnuI7zmWpmLocVt+VEEzWzy/8yB9juvQxD6pLYasEJwV7OO20D8Q2tAh7DzjfdEUBessgiyMpQgfhUblfIXjTpFdTxil/plonWIXaMKofMyfQp5miGa7r8gyYmaJY8UFSAxJrmv4jFNi/rZZ5uXDj1p1QmvzX9205slq4b5b+AFOBBoRor9LTgAAAABJRU5ErkJggg==)
+      2 2,
+    pointer;
+  font-family: "Neue Machina";
+  font-size: 0;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
 button,
 div,
 li,
 link {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* WebKit browsers */
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0); /* Firefox for Android */
 }
 
 .container {
@@ -156,10 +177,6 @@ ol[class] {
   list-style: none;
 }
 
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
 img {
   max-width: 100%;
   display: block;
@@ -185,11 +202,3 @@ input[type="range"] {
 a {
   text-decoration: none;
 }
-
-/* @font-face {
-  font-family: "Neue Machina";
-  font-display: swap;
-  src: url("./fonts/NeueMachina-Ultralight.woff2");
-  font-weight: 200;
-  font-style: normal;
-} */

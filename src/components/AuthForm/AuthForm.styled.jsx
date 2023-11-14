@@ -38,6 +38,7 @@ const Form = styled.form`
     flex-grow: 1;
     justify-content: center;
     padding: 10px 115px;
+    align-items: center;
   }
 `;
 
@@ -82,6 +83,13 @@ const SubTitle = styled.h3`
 `;
 
 const Input = styled.input`
+  outline: none;
+
+  &:focus,
+  &:active {
+    border-color: var(--main-green-color);
+  }
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     align-items: center;
     background: #1c1c1c;
@@ -171,4 +179,10 @@ const SubmitBtn = styled.button`
   }
 `;
 
-export { Wrapper, Form, Title, SubTitle, Input, Label, SubmitBtn };
+const InputWrap = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`;
+
+export { Wrapper, Form, Title, SubTitle, Input, Label, SubmitBtn, InputWrap };

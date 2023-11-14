@@ -6,61 +6,93 @@ import {
   Input,
   Label,
   SubmitBtn,
+  InputWrap,
 } from "./AuthForm.styled";
-// const passwordVisibility = (evt, id) => {
-//   const passwordInput = document.getElementById(`${id}`);
-//   const visibleIcon = evt.currentTarget.firstElementChild;
-//   const nonVisibleIcon = visibleIcon.nextElementSibling;
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import IconButton from "@mui/material/IconButton";
+import { AuthHeading } from "../AuthHeading/AuthHeading";
 
-//   if (passwordInput.type === "password") {
-//     passwordInput.type = "text";
-//     visibleIcon.classList.toggle("hidden");
-//     nonVisibleIcon.classList.toggle("hidden");
-//   } else {
-//     passwordInput.type = "password";
-//     visibleIcon.classList.toggle("hidden");
-//     nonVisibleIcon.classList.toggle("hidden");
-//   }
-// };
+import { useState } from "react";
 
-export const AuthForm = ({ isRegister = false }) => {
-  //   const dispatch = useDispatch();
+export const AuthForm = () => {
+  const [showPassword, setShowPassword] = useState(true);
+  const [isRegister, setIsRegister] = useState(false);
 
-  // const onSubmitRegister = (evt) => {
-  //   evt.preventDefault();
-  // };
+  const showPasswordHandler = (e) => {
+    setShowPassword(!showPassword);
+    const input = e.currentTarget.previousElementSibling;
+    if (input.getAttribute("type") === "text") {
+      input.setAttribute("type", "password");
+    } else {
+      input.setAttribute("type", "text");
+    }
+  };
 
-  // const onSubmitLogin = (evt) => {
-  //   evt.preventDefault();
-  // };
+  const isRegisterHandler = (e) => {
+    setIsRegister(!isRegister);
+  };
 
-  // const onClickPasswordVisibility = (evt) => {
-  //   passwordVisibility(evt, "regPasswordInput");
-  // };
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+  };
 
   return (
-    <Wrapper>
-      <Form>
-        <Title>Спробуй нові відчуття</Title>
-        <SubTitle>
-          {isRegister ? "Зареєструйся" : "Увійди"}, щоб грати на максималках в
-          свої улюблені ігри
-        </SubTitle>
-        <Label for="email">Введіть ваш email:</Label>
-        <Input
-          name="email"
-          id="email"
-          placeholder="YOUREMAIL@MIRAPLAY.COM"
-        ></Input>
-        <Label for="password">Введіть ваш пароль:</Label>{" "}
-        <Input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="ВАШ ПАРОЛЬ"
-        ></Input>
-        <SubmitBtn>{isRegister ? "Реєстрація" : "Вхід"}</SubmitBtn>
-      </Form>
-    </Wrapper>
+    <>
+      <AuthHeading
+        isRegister={isRegister}
+        isRegisterHandler={isRegisterHandler}
+      ></AuthHeading>
+      <Wrapper>
+        <Form onSubmit={SubmitHandler}>
+          <Title>Спробуй нові відчуття</Title>
+          <SubTitle>
+            {isRegister ? "Зареєструйся" : "Увійди"}, щоб грати на максималках в
+            свої улюблені ігри
+          </SubTitle>
+          <InputWrap>
+            <Label for="email">Введіть ваш email:</Label>
+            <Input
+              name="email"
+              id="email"
+              placeholder="YOUREMAIL@MIRAPLAY.COM"
+            ></Input>
+          </InputWrap>
+          <InputWrap>
+            <Label for="password">Введіть ваш пароль:</Label>
+            <Input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="ВАШ ПАРОЛЬ"
+            ></Input>
+            <IconButton
+              onClick={showPasswordHandler}
+              sx={{
+                padding: "0px",
+                "@media screen and (min-width: 320px) and (max-width: 767px)": {
+                  position: "absolute",
+                  top: "44px",
+                  right: "13px",
+                },
+                "@media (min-width: 1200px)": {
+                  position: "absolute",
+                  top: "58px",
+                  left: "335px",
+                },
+              }}
+            >
+              <VisibilityIcon
+                sx={{
+                  fill: showPassword ? "#989898" : "var(--main-green-color)",
+                  cursor: "pointer",
+                  height: "20px",
+                }}
+              />
+            </IconButton>
+          </InputWrap>
+          <SubmitBtn>{isRegister ? "Реєстрація" : "Вхід"}</SubmitBtn>
+        </Form>
+      </Wrapper>
+    </>
   );
 };
