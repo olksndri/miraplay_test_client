@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Authorization } from "./pages/Authorization/Authorization";
 
 export const App = () => {
