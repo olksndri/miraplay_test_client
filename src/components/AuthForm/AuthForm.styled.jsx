@@ -88,6 +88,7 @@ const Input = styled.input`
   &:focus,
   &:active {
     border-color: var(--main-green-color);
+    background: #1c1c1c;
   }
 
   @media screen and (min-width: 320px) and (max-width: 767px) {

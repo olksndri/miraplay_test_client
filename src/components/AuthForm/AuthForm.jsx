@@ -1,3 +1,7 @@
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Report } from "notiflix/build/notiflix-report-aio";
 import {
   Wrapper,
   Form,
@@ -11,12 +15,39 @@ import {
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import IconButton from "@mui/material/IconButton";
 import { AuthHeading } from "../AuthHeading/AuthHeading";
-
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { signUp, signIn } from "../../redux/auth/operations";
+import {
+  signUpPending,
+  signUpFulfilled,
+  signUpRejected,
+  signInPending,
+  signInFulfilled,
+  signInRejected,
+} from "../../redux/auth/slice";
 
 export const AuthForm = () => {
   const [showPassword, setShowPassword] = useState(true);
   const [isRegister, setIsRegister] = useState(false);
+  const [authBody, setAuthBody] = useState(null);
+  const [currErr, setCurrErr] = useState(false);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const {
+    data: result,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: [`${isRegister ? "signup" : "signin"}`, authBody],
+    queryFn: () => {
+      dispatch(isRegister ? signUpPending() : signInPending());
+      return isRegister ? signUp(authBody) : signIn(authBody);
+    },
+    enabled: false,
+    retry: false,
+  });
 
   const showPasswordHandler = (e) => {
     setShowPassword(!showPassword);
@@ -32,9 +63,39 @@ export const AuthForm = () => {
     setIsRegister(!isRegister);
   };
 
-  const SubmitHandler = (e) => {
+  const SubmitHandler = async (e) => {
     e.preventDefault();
+
+    const form = e.currentTarget;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    await setAuthBody({ email, password });
+    setCurrErr(true);
+
+    refetch();
   };
+
+  useEffect(() => {
+    if (result) {
+      dispatch(
+        isRegister
+          ? signUpFulfilled({ email: result.user.email, token: result.token })
+          : signInFulfilled({ email: result.user.email, token: result.token })
+      );
+      navigate("/games_lib");
+    }
+    if (error && currErr) {
+      const { message } = error.response.data;
+      Report.warning(
+        `${isRegister ? "Signup" : "Signin"} error`,
+        `${message}`,
+        "Okay"
+      );
+      dispatch(isRegister ? signUpRejected() : signInRejected());
+      setCurrErr(false);
+    }
+  }, [result, error, currErr, isRegister, refetch, dispatch, navigate]);
 
   return (
     <>
@@ -50,15 +111,16 @@ export const AuthForm = () => {
             свої улюблені ігри
           </SubTitle>
           <InputWrap>
-            <Label for="email">Введіть ваш email:</Label>
+            <Label htmlFor="email">Введіть ваш email:</Label>
             <Input
+              type="text"
               name="email"
               id="email"
               placeholder="YOUREMAIL@MIRAPLAY.COM"
             ></Input>
           </InputWrap>
           <InputWrap>
-            <Label for="password">Введіть ваш пароль:</Label>
+            <Label htmlFor="password">Введіть ваш пароль:</Label>
             <Input
               type="password"
               name="password"
