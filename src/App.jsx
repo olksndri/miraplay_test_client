@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Loading } from "notiflix/build/notiflix-loading-aio";
