@@ -26,10 +26,12 @@ export const App = () => {
 
   return (
     <Routes>
-      <Route index element={<Homepage />} />
-      <Route path="authorization" element={<Authorization />} />
-      <Route path="games_lib" element={<Games />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/">
+        <Route index element={<Homepage />} />
+        <Route path="authorization" element={<Authorization />} />
+        <Route path="games_lib" element={<Games />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
     </Routes>
   );
 };
