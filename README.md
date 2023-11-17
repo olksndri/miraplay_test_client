@@ -13,4 +13,5 @@
   <li>Styled Components</li>
   <li>MUI</li>
   <li>Axios</li>
+  <li>Webpack</li>
 </ul>

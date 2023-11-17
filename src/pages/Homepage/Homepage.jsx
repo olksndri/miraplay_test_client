@@ -7,7 +7,7 @@ import {
   refreshUserPending,
   refreshUserRejected,
 } from "../../redux/auth/slice";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { selectToken } from "../../redux/auth/selectors";
 
@@ -50,5 +50,5 @@ export const Homepage = () => {
     }
   }, [isLoggedIn, refetch, navigate]);
 
-  return <></>;
+  return <Outlet></Outlet>;
 };
