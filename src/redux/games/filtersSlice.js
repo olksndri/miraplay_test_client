@@ -4,8 +4,8 @@ const initialState = {
   selectedGenre: "ALL",
 };
 
-const genresSlice = createSlice({
-  name: "genre",
+const fltersSlice = createSlice({
+  name: "filters",
   initialState,
   reducers: {
     setGenre(state, action) {
@@ -14,6 +14,6 @@ const genresSlice = createSlice({
   },
 });
 
-export const { setGenre } = genresSlice.actions;
+export const { setGenre } = fltersSlice.actions;
 
-export const genresReducer = genresSlice.reducer;
+export const filtersReducer = fltersSlice.reducer;

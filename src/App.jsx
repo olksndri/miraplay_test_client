@@ -1,17 +1,19 @@
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 import { Authorization } from "./pages/Authorization/Authorization";
 import { Homepage } from "./pages/Homepage/Homepage";
 import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { selectIsLoading } from "./redux/games/selectors";
 import { Games } from "./pages/Games/Games";
 
 export const App = () => {
   const isRefresh = useSelector(selectIsRefreshing);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    if (isRefresh) {
+    if (isRefresh || isLoading) {
       Loading.standard("Loading...", {
         fontFamily: "Neue Machina",
         svgColor: "var(--main-green-color)",
@@ -19,7 +21,7 @@ export const App = () => {
     } else {
       Loading.remove();
     }
-  }, [isRefresh]);
+  }, [isRefresh, isLoading]);
 
   return (
     <Routes>

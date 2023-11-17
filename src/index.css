@@ -3,7 +3,7 @@
 @font-face {
   font-family: "Neue Machina";
   font-display: swap;
-  src: url("./fonts/NeueMachina-Light.418f63ac88af6ed51de9.woff2");
+  src: url("./assets/fonts/NeueMachina-Light.418f63ac88af6ed51de9.woff2");
   font-weight: 300;
   font-style: normal;
 }
@@ -11,7 +11,7 @@
 @font-face {
   font-family: "Neue Machina";
   font-display: swap;
-  src: url("./fonts/NeueMachina-Black.a5d08d03e9e32b9c1224.woff2");
+  src: url("./assets/fonts/NeueMachina-Black.a5d08d03e9e32b9c1224.woff2");
   font-weight: 900;
   font-style: normal;
 }
@@ -19,7 +19,7 @@
 @font-face {
   font-family: "Neue Machina";
   font-display: swap;
-  src: url("./fonts/NeueMachina-Regular.2dabb3622c2ec78c26ea.woff2");
+  src: url("./assets/fonts/NeueMachina-Regular.2dabb3622c2ec78c26ea.woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -27,7 +27,7 @@
 @font-face {
   font-family: "Neue Machina";
   font-display: swap;
-  src: url("./fonts/NeueMachina-Bold.d49ee994b16c7a8be96e.woff2");
+  src: url("./assets/fonts/NeueMachina-Bold.d49ee994b16c7a8be96e.woff2");
   font-weight: bold;
   font-style: normal;
 }
@@ -35,7 +35,7 @@
 @font-face {
   font-family: "Neue Machina";
   font-display: swap;
-  src: url("./fonts/NeueMachina-Medium.a9b17f3a7d0e2486822d.woff2");
+  src: url("./assets/fonts/NeueMachina-Medium.a9b17f3a7d0e2486822d.woff2");
   font-weight: 500;
   font-style: normal;
 }
@@ -43,7 +43,7 @@
 @font-face {
   font-family: "Neue Machina";
   font-display: swap;
-  src: url("./fonts/NeueMachina-Ultrabold.5310e4a5401b5d25eeba.woff2");
+  src: url("./assets/fonts/NeueMachina-Ultrabold.5310e4a5401b5d25eeba.woff2");
   font-weight: 800;
   font-style: normal;
 }

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-const AllGamesWrap = styled.div`
+const Section = styled.section`
+  padding-top: 100px;
+
   @media screen and (min-width: 320px) and (max-width: 767px) {
     min-height: 500px;
     overflow: hidden;
@@ -92,4 +94,5 @@ const GenreItem = styled.li`
     text-transform: uppercase;
   }
 `;
-export { AllGamesWrap, AllGamesTitle, GenreList, GenreItem };
+
+export { Section, AllGamesTitle, GenreList, GenreItem };

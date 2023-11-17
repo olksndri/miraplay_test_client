@@ -7,7 +7,7 @@ import {
   refreshUserPending,
   refreshUserRejected,
 } from "../../redux/auth/slice";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { selectToken } from "../../redux/auth/selectors";
 
@@ -29,6 +29,7 @@ export const Homepage = () => {
     },
     enabled: false,
     retry: false,
+    refetchOnWindowFocus: false,
   });
 
   useEffect(() => {

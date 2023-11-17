@@ -1,4 +1,3 @@
-// import { gamesReducer } from "./games/gamesSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import {
   persistStore,
@@ -12,18 +11,19 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/slice";
-import { genresReducer } from "./games/genreSlice";
+import { filtersReducer } from "./games/filtersSlice";
+import { gamesReducer } from "./games/gamesSlice";
 
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["token", "isLoggedIn"],
+  whitelist: ["token", "isLoggedIn", "user"],
 };
 
 export const store = configureStore({
   reducer: {
-    // games: gamesReducer,
-    genre: genresReducer,
+    games: gamesReducer,
+    filters: filtersReducer,
     auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware: (getDefaultMiddleware) =>
