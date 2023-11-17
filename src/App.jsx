@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Loading } from "notiflix/build/notiflix-loading-aio";
@@ -26,12 +26,10 @@ export const App = () => {
 
   return (
     <Routes>
-      {/* <Route path="/"> */}
       <Route index element={<Homepage />} />
       <Route path="authorization" element={<Authorization />} />
       <Route path="games_lib" element={<Games />} />
       <Route path="*" element={<NotFound />} />
-      {/* </Route> */}
     </Routes>
   );
 };
