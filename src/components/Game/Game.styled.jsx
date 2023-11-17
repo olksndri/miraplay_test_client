@@ -37,6 +37,10 @@ const GameCardItem = styled.li`
     width: 370px;
     height: 495px;
   }
+
+  &:hover {
+    filter: brightness(1.2);
+  }
 `;
 
 const GameCardImage = styled.img`

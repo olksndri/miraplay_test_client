@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Authorization } from "./pages/Authorization/Authorization";
-import { Homepage } from "./pages/Homepage/Homepage";
 import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import { selectIsLoading } from "./redux/games/selectors";
+import { Homepage } from "./pages/Homepage/Homepage";
+import { Authorization } from "./pages/Authorization/Authorization";
 import { Games } from "./pages/Games/Games";
+import { NotFound } from "./components/NotFound/NotFound";
 
 export const App = () => {
   const isRefresh = useSelector(selectIsRefreshing);
@@ -29,6 +30,7 @@ export const App = () => {
         <Route index element={<Homepage />} />
         <Route path="authorization" element={<Authorization />} />
         <Route path="games_lib" element={<Games />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
