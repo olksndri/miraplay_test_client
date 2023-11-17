@@ -32,9 +32,6 @@ const AuthBtn = styled.button`
     padding-top: 10px;
     text-transform: uppercase;
     position: relative;
-
-    .underline {
-    }
   }
 
   @media (min-width: 1200px) {
