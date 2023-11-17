@@ -30,8 +30,8 @@ export const App = () => {
         <Route index element={<Homepage />} />
         <Route path="authorization" element={<Authorization />} />
         <Route path="games_lib" element={<Games />} />
-        <Route path="*" element={<NotFound />} />
       </Route>
+        <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
